@@ -365,10 +365,12 @@ module.exports = async (userId) => {
     updates = updates.map(v => {
         let day = new Date(v.fields.DateCreated)
         day = (day.getTime() / 1000).toFixed(0)
-        attachments = v.fields.Attachments ? "*Attachments:*\n" : ""
-        v.fields.Attachments.map(v => {
-            attachments += `<${v.url}|${v.filename}>\n`
-        })
+        let attachments = v.fields.Attachments ? "*Attachments:*\n" : ""
+        if (attachments != "") {
+          v.fields.Attachments.map(v => {
+              attachments += `<${v.url}|${v.filename}>\n`
+          })
+        }
         return {
             "type": "section",
             "text": {
