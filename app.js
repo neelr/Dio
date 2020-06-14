@@ -81,10 +81,10 @@ app.post("/api/blocks", (req, res) => {
                     meetingDoneButtonHandle(type[1], payload.user.id)
                     break
                 case "approve":
-                    meetingApproveButtonHandle(type[1], payload.user.id)
+                    meetingApproveButtonHandle(type, payload.user.id)
                     break
                 case "decline":
-                    meetingDenyButtonHandle(type[1], payload.user.id)
+                    meetingDenyButtonHandle(type, payload.user.id)
                     break
                 default:
                     console.log(type)

@@ -6,11 +6,17 @@ var base = new Airtable({ apiKey: process.env.AIRTABLE }).base(process.env.BASE)
 
 module.exports = async (record, userID) => {
     await base("Meetings").update([{
-        id: record,
+        id: record[1],
         fields: {
             Status: "Accepted"
         }
     }])
+    axios.post("https://slack.com/api/chat.postMessage", qs.stringify({
+        channel: record[2],
+        token: process.env.SLACK,
+        text: "Meeting Update! Check home!"
+    }))
+
     const modal = await getHome(userID)
     axios.post("https://slack.com/api/views.publish", qs.stringify({
         user_id: userID,

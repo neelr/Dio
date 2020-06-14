@@ -57,7 +57,7 @@ const mentorScreen = async (userId) => {
                             "emoji": true
                         },
                         "style": "primary",
-                        "value": `approve_${v.id}`,
+                        "value": `approve_${v.id}_${v.fields.MenteeSlackID}`,
                         "confirm": {
                             "title": {
                                 "type": "plain_text",
@@ -85,7 +85,7 @@ const mentorScreen = async (userId) => {
                             "emoji": true
                         },
                         "style": "danger",
-                        "value": `decline_${v.id}`,
+                        "value": `decline_${v.id}_${v.fields.MenteeSlackID}`,
                         "confirm": {
                             "title": {
                                 "type": "plain_text",

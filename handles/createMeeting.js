@@ -19,6 +19,12 @@ module.exports = async (payload) => {
                 Status: "Pending",
             }
         }])
+    let person = await base("Confirmed People").find(load[1])
+    axios.post("https://slack.com/api/chat.postMessage", qs.stringify({
+        channel: person.fields.MentorID,
+        token: process.env.SLACK,
+        text: "New Meeting Requested by Mentee!"
+    }))
     const modal = await getHome(payload.user.id)
     axios.post("https://slack.com/api/views.publish", qs.stringify({
         user_id: payload.user.id,
