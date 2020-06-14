@@ -14,7 +14,7 @@ const mentorScreen = async (userId) => {
                     "type": "section",
                     "text": {
                         "type": "mrkdwn",
-                        "text": "*You seem to be in the wrong place....*\n This is a portal meant for Summer of Making people. If you think you should be seeing something here, contact <@UJYDFQ2QL>"
+                        "text": "*You seem to be in the wrong place....*\n This is a portal meant for Summer of Making participants who have been assigned a mentor. If you think you should be seeing something here, contact <@summer>"
                     }
                 }
             ]
